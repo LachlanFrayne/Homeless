@@ -7,6 +7,9 @@ public class EconomyController : MonoBehaviour {
 
     [Header("Debugging")]
     public KeyCode debugBegPassive;
+    public KeyCode debugBegPositive;
+    public KeyCode debugBegNegative;
+    public KeyCode buySandwich;
 
     [Header("Time Related Variables")]
     //public float timePassedGlobal = 0.0f;                                 // how much time has passed during the day
@@ -31,6 +34,7 @@ public class EconomyController : MonoBehaviour {
     public float hungerDecrease = 1;                                        // the rate that it decreases at
     public float warmth = 100;                                              // how warm the player is
     public float warmthDecrease = 1;                                        // the rate that it decreases at
+    public Image hungerBar;                                                 // stores the fill bar for hunger
 
     // Use this for initialization
     void Start () {
@@ -52,9 +56,16 @@ public class EconomyController : MonoBehaviour {
         // add a debug key for begging passive
         if (Input.GetKeyUp(debugBegPassive))
             EarnMoneyDEBUG();
+        if (Input.GetKeyUp(buySandwich))
+            BuyFood(GameObject.Find("Sandwich"));
+        if (Input.GetKeyUp(debugBegPositive))
+            BegForMoneyPOS_Debug();
+        if (Input.GetKeyUp(debugBegNegative))
+            BegForMoneyNEG_Debug();
         // hunger and warmth
         hunger -= hungerDecrease * Time.deltaTime;
         warmth -= hungerDecrease * Time.deltaTime;
+        hungerBar.fillAmount = hunger / 100;
     }
 
     #region Passively Earning Money
@@ -158,6 +169,26 @@ public class EconomyController : MonoBehaviour {
         }
     }
 
+    public void BegForMoneyPOS_Debug()
+    {
+        PositiveDialogue();                                         // play a positive dialogue
+        int begMoney = Random.Range(minMoney_Beg, maxMoney_Beg);    // generates a random amount of money
+        begMoney = (int)((Mathf.Round(begMoney / 5)) * 5);
+        //Debug.Log("begMoney = " + begMoney);
+        playerMoney += begMoney;                                    // increase player money by a random number
+        playerMoney_float = (float)playerMoney / 100;               // converts to float and dollars
+        playerMoney_String = ConvertToDollars(playerMoney_float);     // convert the string to dollar formatting
+                                                                      //Debug.Log("Player money = " + playerMoney_String);
+        moneyTxt.text = playerMoney_String;                            // updates the UI elements
+        timePassed = 0;                                             // resets the timer but doesn't change the randoms already chosen
+    }
+
+    public void BegForMoneyNEG_Debug()
+    {
+        NegativeDialogue();
+        timePassed = 0;
+    }
+
     // play one of the positive dialogue options
     public void PositiveDialogue()
     {
@@ -180,9 +211,27 @@ public class EconomyController : MonoBehaviour {
     // sandwich
     public int sandwichCost = 700;
 
-    public void BuyFood(GameObject food)
+    // prefabs in the scene that are food and store variables
+    public void BuyFood(GameObject foodItem)
     {
-
+        //Debug.Log("Bought a sandwich");
+        Food food = foodItem.GetComponent<Food>();                                      // gets the Food script
+        if (playerMoney < food.foodCost)
+        {
+            Debug.Log("You don't have enough money");
+            return;
+        }
+        else
+        {
+            Debug.Log("Sandwich success");
+            playerMoney -= food.foodCost;
+            playerMoney_float = (float)playerMoney / 100;                                   // converts to float and dollars
+            playerMoney_String = ConvertToDollars(playerMoney_float);                       // convert the string to dollar formatting
+            moneyTxt.text = playerMoney_String;                            // updates the UI elements
+            hunger += food.foodNourishment;
+            if (hunger >= 100)
+                hunger = 100;
+        }
     }
 
     #endregion

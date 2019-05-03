@@ -52,6 +52,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugBegPassive: 111
+  debugBegPositive: 101
+  debugBegNegative: 113
+  buySandwich: 107
   timePassed: 0
   minTime: 5
   maxTime: 20
@@ -64,6 +67,7 @@ MonoBehaviour:
   hungerDecrease: 1
   warmth: 100
   warmthDecrease: 1
+  hungerBar: {fileID: 0}
   dialogueTXT: {fileID: 0}
   dialogueListPositive:
   - '"Uh, ok, sure, you can have this I guess."'
@@ -80,5 +84,7 @@ MonoBehaviour:
   - '"I don''t have any cash on me, I''m sorry"'
   - '"Don''t touch me"'
   - '"..."'
+  randomSeed: 0
   minMoney_Beg: 100
   maxMoney_Beg: 1000
+  sandwichCost: 700

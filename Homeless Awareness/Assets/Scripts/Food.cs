@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class Food : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    public string foodName;
+    public int foodCost;
+    public float foodNourishment;
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

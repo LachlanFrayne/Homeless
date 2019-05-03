@@ -51,7 +51,7 @@ public class PlayerCamera : MonoBehaviour
             if (Input.GetMouseButtonUp(0) && hit.transform.tag == "Person" && !hit.transform.GetComponent<PedestrianController>().paid)
             {
                 economy.BegForMoney();
-                hit.transform.GetComponent<PedestrianController>().PaidBegger();
+                hit.transform.GetComponent<PedestrianController>().PaidBeggar();
                 //Debug.Log("max");
             }
 

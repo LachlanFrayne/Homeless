@@ -5,7 +5,7 @@ using UnityEngine;
 public class PedestrianController : MonoBehaviour {
 
     public bool paid = false;
-    public void PaidBegger()
+    public void PaidBeggar()
     {
         paid = true;
         Debug.Log("Stole Money from Max");
