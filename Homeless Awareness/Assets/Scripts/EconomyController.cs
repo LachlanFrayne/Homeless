@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class EconomyController : MonoBehaviour {
 
+    [Header("Debugging")]
+    public KeyCode debugBegPassive;
+
     [Header("Time Related Variables")]
     //public float timePassedGlobal = 0.0f;                                 // how much time has passed during the day
     public float timePassed = 0.0f;                                         // trakcs how much time has passed since earning money
@@ -23,6 +26,12 @@ public class EconomyController : MonoBehaviour {
     [System.NonSerialized] public int earnMoney;                            // a random number between min and max Money
     [System.NonSerialized] public float earnMoney_rounded;                  // earnMoney converted to an int
 
+    [Header("Survival related variables")]
+    public float hunger = 100;                                              // how hungry the player is
+    public float hungerDecrease = 1;                                        // the rate that it decreases at
+    public float warmth = 100;                                              // how warm the player is
+    public float warmthDecrease = 1;                                        // the rate that it decreases at
+
     // Use this for initialization
     void Start () {
         // set the initial spawn interval and money to be earned. also rounds the money earned to the nearest 5 (5 cents)
@@ -31,16 +40,22 @@ public class EconomyController : MonoBehaviour {
         moneyTxt.text = "$0.00";
         dialogueTXT.text = "";                                              // clear the dialogue
         // counts the amount of strings in the dialogue lists
-        countMaxPositive = dialogueListPositive.Count;
-        countMaxNegative = dialogueListNegative.Count;
-        Debug.Log("Positive Dialogue Count: " + countMaxPositive);
-        Debug.Log("Ne gative Dialogue Count: " + countMaxNegative);
+        //countMaxPositive = dialogueListPositive.Count;
+        //countMaxNegative = dialogueListNegative.Count;
+        //Debug.Log("Positive Dialogue Count: " + countMaxPositive);
+        //Debug.Log("Negative Dialogue Count: " + countMaxNegative);
     }
 	
 	// Update is called once per frame
 	void Update () {
         EarnMoney();
-	}
+        // add a debug key for begging passive
+        if (Input.GetKeyUp(debugBegPassive))
+            EarnMoneyDEBUG();
+        // hunger and warmth
+        hunger -= hungerDecrease * Time.deltaTime;
+        warmth -= hungerDecrease * Time.deltaTime;
+    }
 
     #region Passively Earning Money
 
@@ -110,8 +125,8 @@ public class EconomyController : MonoBehaviour {
     public Text dialogueTXT;                                            // text object where the strings will go
     public List<string> dialogueListPositive;                           // list of positive dialogue strings
     public List<string> dialogueListNegative;                           // list of negative dialogue strings
-    public int countMaxPositive;                                        // a count of how many strings are in the list of positive dialogue outcomes
-    public int countMaxNegative;                                        // a count of how many strings are in the list of negative dialogue outcomes
+    //public int countMaxPositive;                                        // a count of how many strings are in the list of positive dialogue outcomes
+    //public int countMaxNegative;                                        // a count of how many strings are in the list of negative dialogue outcomes
 
     [Header("Begging related variables)")]
     private int randomSeed;                                             // a random int between 1-100
@@ -121,18 +136,18 @@ public class EconomyController : MonoBehaviour {
     // actively begging for money
     public void BegForMoney()
     {
-        Debug.Log("Begging");
+        //Debug.Log("Begging");
         randomSeed = Random.Range(0, 100);                              // 5% chance for begging to be successful
         if (randomSeed <= 5)
         {
             PositiveDialogue();                                         // play a positive dialogue
             int begMoney = Random.Range(minMoney_Beg, maxMoney_Beg);    // generates a random amount of money
             begMoney = (int)((Mathf.Round(begMoney / 5)) * 5);
-            Debug.Log("begMoney = " + begMoney);
+            //Debug.Log("begMoney = " + begMoney);
             playerMoney += begMoney;                                    // increase player money by a random number
             playerMoney_float = (float)playerMoney / 100;               // converts to float and dollars
             playerMoney_String = ConvertToDollars(playerMoney_float);     // convert the string to dollar formatting
-            Debug.Log("Player money = " + playerMoney_String);
+            //Debug.Log("Player money = " + playerMoney_String);
             moneyTxt.text = playerMoney_String;                            // updates the UI elements
             timePassed = 0;                                             // resets the timer but doesn't change the randoms already chosen
         }
@@ -146,13 +161,17 @@ public class EconomyController : MonoBehaviour {
     // play one of the positive dialogue options
     public void PositiveDialogue()
     {
-
+        int I = Random.Range(0, dialogueListPositive.Count);
+        string S = dialogueListPositive[I];
+        dialogueTXT.text = S;
     }
 
     // play one of the negative dialogue options
     public void NegativeDialogue()
     {
-
+        int I = Random.Range(0, dialogueListNegative.Count);
+        string S = dialogueListNegative[I];
+        dialogueTXT.text = S;
     }
 
     #endregion
