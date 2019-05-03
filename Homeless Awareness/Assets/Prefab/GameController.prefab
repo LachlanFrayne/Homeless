@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1572632916990808}
+  m_IsPrefabAsset: 1
+--- !u!1 &1572632916990808
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4375856285659426}
+  - component: {fileID: 114696381310155102}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4375856285659426
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1572632916990808}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114696381310155102
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1572632916990808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfde68e5b8f2e014ebdd23970f8acf0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugBegPassive: 111
+  timePassed: 0
+  minTime: 5
+  maxTime: 20
+  playerMoney: 0
+  playerMoney_float: 0
+  moneyTxt: {fileID: 0}
+  minMoney: 10
+  maxMoney: 500
+  hunger: 100
+  hungerDecrease: 1
+  warmth: 100
+  warmthDecrease: 1
+  dialogueTXT: {fileID: 0}
+  dialogueListPositive:
+  - '"Uh, ok, sure, you can have this I guess."'
+  - '"Fine"'
+  - '"I''ve got some spare change"'
+  - '"I don''t need this anyway"'
+  - '"Here"'
+  - '"Here''s a little bit"'
+  dialogueListNegative:
+  - '"Sorry, I don''t carry cash on me"'
+  - '"No"'
+  - '"Sorry..."'
+  - '"I''m in a bit of a rush, sorry"'
+  - '"I don''t have any cash on me, I''m sorry"'
+  - '"Don''t touch me"'
+  - '"..."'
+  minMoney_Beg: 100
+  maxMoney_Beg: 1000

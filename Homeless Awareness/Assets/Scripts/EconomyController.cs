@@ -22,7 +22,7 @@ public class EconomyController : MonoBehaviour {
     //[System.NonSerialized] public string playerMoney_Dollars = "$000.00"; // the string that stores the player money converted into dolar formatting
     public Text moneyTxt;                                                   // the UI element that displays how much money the player has
     public int minMoney = 10;                                               // the min amount of money you can earn
-    public int maxMoney = 500;                                              // the max amount of money you can earn
+    public int maxMoney = 300;                                              // the max amount of money you can earn
     [System.NonSerialized] public int earnMoney;                            // a random number between min and max Money
     [System.NonSerialized] public float earnMoney_rounded;                  // earnMoney converted to an int
 
@@ -128,10 +128,10 @@ public class EconomyController : MonoBehaviour {
     //public int countMaxPositive;                                        // a count of how many strings are in the list of positive dialogue outcomes
     //public int countMaxNegative;                                        // a count of how many strings are in the list of negative dialogue outcomes
 
-    [Header("Begging related variables)")]
-    private int randomSeed;                                             // a random int between 1-100
+    [Header("Begging related variables")]
+    public int randomSeed;                                             // a random int between 1-100
     public int minMoney_Beg = 100;                                      // the minimum amount of money you can earn with begging (in cents)
-    public int maxMoney_Beg = 1000;                                     // the maximum amount of money you can earn with begging (in cents)
+    public int maxMoney_Beg = 500;                                     // the maximum amount of money you can earn with begging (in cents)
 
     // actively begging for money
     public void BegForMoney()
@@ -172,6 +172,17 @@ public class EconomyController : MonoBehaviour {
         int I = Random.Range(0, dialogueListNegative.Count);
         string S = dialogueListNegative[I];
         dialogueTXT.text = S;
+    }
+
+    #endregion
+
+    #region Food Related Variables
+    // sandwich
+    public int sandwichCost = 700;
+
+    public void BuyFood(GameObject food)
+    {
+
     }
 
     #endregion
