@@ -68,6 +68,7 @@ MonoBehaviour:
   warmth: 100
   warmthDecrease: 1
   hungerBar: {fileID: 0}
+  warmthBar: {fileID: 0}
   dialogueTXT: {fileID: 0}
   dialogueListPositive:
   - '"Uh, ok, sure, you can have this I guess."'
@@ -87,4 +88,3 @@ MonoBehaviour:
   randomSeed: 0
   minMoney_Beg: 100
   maxMoney_Beg: 1000
-  sandwichCost: 700

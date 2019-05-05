@@ -11,6 +11,10 @@ public class EconomyController : MonoBehaviour {
     public KeyCode debugBegNegative;
     public KeyCode buySandwich;
 
+    [Header("Inputs")]
+    public KeyCode getWarm;
+    public KeyCode openStore;
+
     [Header("Time Related Variables")]
     //public float timePassedGlobal = 0.0f;                                 // how much time has passed during the day
     public float timePassed = 0.0f;                                         // trakcs how much time has passed since earning money
@@ -35,6 +39,7 @@ public class EconomyController : MonoBehaviour {
     public float warmth = 100;                                              // how warm the player is
     public float warmthDecrease = 1;                                        // the rate that it decreases at
     public Image hungerBar;                                                 // stores the fill bar for hunger
+    public Image warmthBar;                                                 // stores the fill bar for hunger
 
     // Use this for initialization
     void Start () {
@@ -56,8 +61,8 @@ public class EconomyController : MonoBehaviour {
         // add a debug key for begging passive
         if (Input.GetKeyUp(debugBegPassive))
             EarnMoneyDEBUG();
-        if (Input.GetKeyUp(buySandwich))
-            BuyFood(GameObject.Find("Sandwich"));
+        //if (Input.GetKeyUp(buySandwich))
+            //BuyFood(GameObject.Find("Sandwich"));
         if (Input.GetKeyUp(debugBegPositive))
             BegForMoneyPOS_Debug();
         if (Input.GetKeyUp(debugBegNegative))
@@ -66,6 +71,7 @@ public class EconomyController : MonoBehaviour {
         hunger -= hungerDecrease * Time.deltaTime;
         warmth -= hungerDecrease * Time.deltaTime;
         hungerBar.fillAmount = hunger / 100;
+        warmthBar.fillAmount = warmth / 100;
     }
 
     #region Passively Earning Money
@@ -209,30 +215,30 @@ public class EconomyController : MonoBehaviour {
 
     #region Food Related Variables
     // sandwich
-    public int sandwichCost = 700;
+    //public int sandwichCost = 700;
 
     // prefabs in the scene that are food and store variables
-    public void BuyFood(GameObject foodItem)
-    {
-        //Debug.Log("Bought a sandwich");
-        Food food = foodItem.GetComponent<Food>();                                      // gets the Food script
-        if (playerMoney < food.foodCost)
-        {
-            Debug.Log("You don't have enough money");
-            return;
-        }
-        else
-        {
-            Debug.Log("Sandwich success");
-            playerMoney -= food.foodCost;
-            playerMoney_float = (float)playerMoney / 100;                                   // converts to float and dollars
-            playerMoney_String = ConvertToDollars(playerMoney_float);                       // convert the string to dollar formatting
-            moneyTxt.text = playerMoney_String;                            // updates the UI elements
-            hunger += food.foodNourishment;
-            if (hunger >= 100)
-                hunger = 100;
-        }
-    }
+    //public void BuyFood(GameObject foodItem)
+    //{
+    //    //Debug.Log("Bought a sandwich");
+    //    Food food = foodItem.GetComponent<Food>();                                      // gets the Food script
+    //    if (playerMoney < food.foodCost)
+    //    {
+    //        Debug.Log("You don't have enough money");
+    //        return;
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("Sandwich success");
+    //        playerMoney -= food.foodCost;
+    //        playerMoney_float = (float)playerMoney / 100;                                   // converts to float and dollars
+    //        playerMoney_String = ConvertToDollars(playerMoney_float);                       // convert the string to dollar formatting
+    //        moneyTxt.text = playerMoney_String;                            // updates the UI elements
+    //        hunger += food.foodNourishment;
+    //        if (hunger >= 100)
+    //            hunger = 100;
+    //    }
+    //}
 
     #endregion
 }

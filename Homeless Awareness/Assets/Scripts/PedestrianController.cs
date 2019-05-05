@@ -8,6 +8,6 @@ public class PedestrianController : MonoBehaviour {
     public void PaidBeggar()
     {
         paid = true;
-        Debug.Log("Stole Money from Max");
+        //Debug.Log("Stole Money from Max");
     }
 }
