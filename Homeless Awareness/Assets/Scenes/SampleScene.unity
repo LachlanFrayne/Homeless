@@ -20389,9 +20389,9 @@ MonoBehaviour:
   moneyTxt: {fileID: 1191897847}
   minMoney: 10
   maxMoney: 500
-  hunger: 100
+  hunger: 1
   hungerDecrease: 1
-  warmth: 100
+  warmth: 1
   warmthDecrease: 1
   hungerBar: {fileID: 0}
   warmthBar: {fileID: 0}

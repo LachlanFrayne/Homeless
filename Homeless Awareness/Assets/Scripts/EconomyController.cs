@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EconomyController : MonoBehaviour {
 
@@ -72,6 +73,12 @@ public class EconomyController : MonoBehaviour {
         warmth -= hungerDecrease * Time.deltaTime;
         hungerBar.fillAmount = hunger / 100;
         warmthBar.fillAmount = warmth / 100;
+
+        if(warmth <= 0 || hunger <= 0)
+        {
+           // Debug.Log("max");
+            SceneManager.LoadScene(1);
+        }
     }
 
     #region Passively Earning Money
