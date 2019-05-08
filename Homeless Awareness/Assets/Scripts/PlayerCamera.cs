@@ -48,23 +48,16 @@ public class PlayerCamera : MonoBehaviour
         // Does the ray intersect any objects excluding the player layer
         if (Physics.Raycast(ray, out hit, distanceOfRay, raycastLayerMask))
         {
-            //Debug.Log(hit.transform.name);
+            Debug.Log(hit.transform.name);
 
             if (Input.GetMouseButtonUp(0) && hit.transform.tag == "Person" && !hit.transform.GetComponent<PedestrianController>().paid)
             {
                 economy.BegForMoney();
-                hit.transform.GetComponent<PedestrianController>().PaidBegger();
-                //Debug.Log("max");
+                hit.transform.GetComponent<PedestrianController>().PaidBeggar();
+                Debug.Log("max");
             }
-
-
-
-
         }
-
-
     }
-
 }
 
 

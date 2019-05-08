@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/Main_Chris-003-Alpha.unity
+    guid: a45f2ea34345cf04ea8862e703c19c53
   - enabled: 1
     path: Assets/Scenes/EndScreen-001.unity
     guid: b6485f20a88fa72449cb90733e10390a

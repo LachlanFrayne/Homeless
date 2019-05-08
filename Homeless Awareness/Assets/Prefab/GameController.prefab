@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4375856285659426}
-  - component: {fileID: 114696381310155102}
+  - component: {fileID: 114902270880706758}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -40,7 +40,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114696381310155102
+--- !u!114 &114902270880706758
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48,13 +48,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1572632916990808}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfde68e5b8f2e014ebdd23970f8acf0f, type: 3}
+  m_Script: {fileID: 11500000, guid: dcbaddf2d929ae94ea029e7319ab0eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugBegPassive: 108
-  debugBegPositive: 46
-  debugBegNegative: 44
-  buySandwich: 105
+  debugBegPassive: 0
+  debugBegPositive: 0
+  debugBegNegative: 0
+  buySandwich: 0
   getWarm: 0
   openStore: 0
   timePassed: 0
@@ -64,7 +64,7 @@ MonoBehaviour:
   playerMoney_float: 0
   moneyTxt: {fileID: 0}
   minMoney: 10
-  maxMoney: 500
+  maxMoney: 300
   hunger: 100
   hungerDecrease: 1
   warmth: 100
@@ -73,20 +73,23 @@ MonoBehaviour:
   warmthBar: {fileID: 0}
   dialogueTXT: {fileID: 0}
   dialogueListPositive:
-  - '"Uh, ok, sure, you can have this I guess."'
-  - '"Fine"'
-  - '"I''ve got some spare change"'
-  - '"I don''t need this anyway"'
-  - '"Here"'
-  - '"Here''s a little bit"'
+  - '"Sure. Here you go."'
+  - '"I guess you can have this."'
+  - '"Alright, alright."'
+  - '"I have some change to spare."'
+  - '"I''m really sorry, here you go."'
+  - '"Hope this helps."'
+  - '"Don''t spend it on drinks."'
   dialogueListNegative:
-  - '"Sorry, I don''t carry cash on me"'
-  - '"No"'
-  - '"Sorry..."'
-  - '"I''m in a bit of a rush, sorry"'
-  - '"I don''t have any cash on me, I''m sorry"'
-  - '"Don''t touch me"'
+  - '"No."'
+  - '"Sorry... sorry"'
+  - '"Sorry, I don''t carry cash."'
+  - '"Sorry, can''t help you"'
   - '"..."'
+  - '"Get away from me"'
+  - '"Don''t touch me"'
+  - '"I''m really sorry..."'
+  - '"Ah, uh, sorry, no"'
   randomSeed: 0
   minMoney_Beg: 100
-  maxMoney_Beg: 1000
+  maxMoney_Beg: 500

@@ -3,38 +3,86 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class EndingText : MonoBehaviour {
 
-	public List<string> listOfMessages;								// strings of all the final messages
-	public List<float> durationOfMessage;							// how long each respective string lasts for
-	private int i = 0;												// the reference number
-	public Text dialogueText;										// the UI text object
-	public Color startColor = Color.black;							// the starting colour of the text
-	public Color endColor = Color.white;							// the midway colour of the text
-	private float currentTime = 0.0f;								// timer float variable
-	private float messageDuration = 1.0f;							// how long to wait for
-	private bool isCounting = false;								// whether the timer is running or not
+    public List<string> mesg;
+    public List<float> times;
 
-	// Use this for initialization
-	void Start () {
-		foreach (var item in listOfMessages)
+    public Text text;
+
+    public bool done;
+    public bool displaying;
+    public float timer;
+    public float disptime = 2f;
+    public int i;
+
+    public void Start()
+    {
+        DisplayMessage();
+    }
+	    private void Update()
+    {
+        if (done)
+        {
+			if (Input.anyKey)
+			{
+				Application.Quit();
+				Debug.Log("Quitting");
+			}
+        }
+		else
 		{
-			messageDuration = durationOfMessage[i];
-			dialogueText.text = listOfMessages[i];					// grabs the respective string
-			dialogueText.color = Color.Lerp(startColor, endColor, durationOfMessage[i]);
-			isCounting = true;
-			if (currentTime >= messageDuration)
-			i++;
-			isCounting = false;
-			currentTime = 0;
+			
+            if (displaying)
+            {
+                timer += Time.deltaTime;
+                text.color = Color.Lerp(text.color, Color.white, .05f);
+
+                if (timer >= times[i])
+                {
+                    timer = 0;
+                    HideMessage();
+                }
+            }
+            else
+            {
+				if (i < mesg.Count - 1)
+				{
+                disptime -= Time.deltaTime;
+                text.color = Color.Lerp(text.color, Color.black, .05f);
+
+                if (disptime <= 0f)
+                {
+                    if (i >= mesg.Count - 1)
+                        done = true;
+                    else
+                    {
+                        i++;
+                        DisplayMessage();
+                        disptime = 2.0f;
+                    }
+                }
+				}
+				else 
+				{done = true;
+				return;}
+            }
+			
+
 		}
-	}
-	
-	
-	// Update is called once per frame
-	void Update () 
-	{
-		if (isCounting == true)
-			currentTime =+ Time.deltaTime;
-	}
+
+    }
+
+
+    void DisplayMessage()
+    {
+        text.text = mesg[i];
+        displaying = true;
+    }
+
+    void HideMessage()
+    {
+        displaying = false;
+    }
 }

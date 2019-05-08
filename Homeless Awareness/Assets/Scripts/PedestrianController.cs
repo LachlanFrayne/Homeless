@@ -36,7 +36,7 @@ public class PedestrianController : MonoBehaviour {
             Destroy(gameObject);
         }
     }
-    public void PaidBegger()
+    public void PaidBeggar()
     {
         paid = true;
         Debug.Log("Stole Money from Max");
