@@ -25,12 +25,14 @@ public class Food : MonoBehaviour {
         //Debug.Log("Bought a sandwich");
         if (economyController.playerMoney < foodCost)
         {
-            Debug.Log("You don't have enough money");
+            economyController.dialogueTXT.text = "You don't have enough money";
+            //Debug.Log("You don't have enough money");
             return;
         }
         else
         {
-            Debug.Log("You bought a sandwich");
+            economyController.dialogueTXT.text = "You bought a sandwich";
+            //Debug.Log("You bought a sandwich");
             economyController.playerMoney -= foodCost;
             economyController.playerMoney_float = (float)economyController.playerMoney / 100;                                   // converts to float and dollars
             economyController.playerMoney_String = ConvertToDollars(economyController.playerMoney_float);                       // convert the string to dollar formatting

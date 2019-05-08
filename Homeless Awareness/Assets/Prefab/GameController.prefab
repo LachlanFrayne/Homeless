@@ -51,10 +51,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfde68e5b8f2e014ebdd23970f8acf0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugBegPassive: 111
-  debugBegPositive: 101
-  debugBegNegative: 113
-  buySandwich: 107
+  debugBegPassive: 108
+  debugBegPositive: 46
+  debugBegNegative: 44
+  buySandwich: 105
+  getWarm: 0
+  openStore: 0
   timePassed: 0
   minTime: 5
   maxTime: 20
