@@ -14,6 +14,8 @@ public class PlayerCamera : MonoBehaviour
     public float distanceOfRay = 100;
     public LayerMask raycastLayerMask;
 
+    
+
     private EconomyController economy;
 
     // Use this for initialization
@@ -51,7 +53,7 @@ public class PlayerCamera : MonoBehaviour
             if (Input.GetMouseButtonUp(0) && hit.transform.tag == "Person" && !hit.transform.GetComponent<PedestrianController>().paid)
             {
                 economy.BegForMoney();
-                hit.transform.GetComponent<PedestrianController>().PaidBeggar();
+                hit.transform.GetComponent<PedestrianController>().PaidBegger();
                 //Debug.Log("max");
             }
 
@@ -59,6 +61,7 @@ public class PlayerCamera : MonoBehaviour
 
 
         }
+
 
     }
 
