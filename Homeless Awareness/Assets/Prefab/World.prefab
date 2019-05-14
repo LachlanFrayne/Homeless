@@ -8792,10 +8792,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedH: 2
   speedV: 3
-  distanceOfRay: 100
+  distanceOfRay: 7
   raycastLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
 --- !u!114 &114435000345110406
 MonoBehaviour:
   m_ObjectHideFlags: 1

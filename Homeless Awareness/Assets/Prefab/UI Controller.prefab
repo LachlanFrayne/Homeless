@@ -51,5 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71490971e7cd7b246b42f2dc0dcf4af2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  storePanel: 326
+  storePanelButton: 324
   inStore: 0
+  storePanel: {fileID: 0}

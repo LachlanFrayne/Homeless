@@ -299,8 +299,15 @@ MonoBehaviour:
   mesg:
   - Thousands of Australians live like this everyday, struggling to survive.
   - 'You can help them. '
+  - https://www.homelessnessaustralia.org.au/
+  - (Not) Authorised by the Australian Government Canberra, developed by @ChrispyDesign
+    and @LachlanFrayne
+  - Press any key to exit
   times:
   - 5
+  - 3
+  - 2
+  - 0.25
   - 1
   text: {fileID: 852349165}
   done: 0
@@ -341,7 +348,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.000022888, y: 0.000013351}
-  m_SizeDelta: {x: 757.9, y: 212.6}
+  m_SizeDelta: {x: 1517.3, y: 787.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &852349165
 MonoBehaviour:

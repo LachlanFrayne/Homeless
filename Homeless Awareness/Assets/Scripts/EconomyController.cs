@@ -1,20 +1,23 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.PostProcessing;
+
 
 public class EconomyController : MonoBehaviour {
 
-    [Header("Debugging")]
-    public KeyCode debugBegPassive;
-    public KeyCode debugBegPositive;
-    public KeyCode debugBegNegative;
-    public KeyCode buySandwich;
+    //[Header("Debugging")]
+    //public KeyCode debugBegPassive;
+    //public KeyCode debugBegPositive;
+    //public KeyCode debugBegNegative;
+    //public KeyCode buySandwich;
 
-    [Header("Inputs")]
-    public KeyCode getWarm;
-    public KeyCode openStore;
+    //[Header("Inputs")]
+    //public KeyCode getWarm;
+    //public KeyCode openStore;
 
     [Header("Time Related Variables")]
     //public float timePassedGlobal = 0.0f;                                 // how much time has passed during the day
@@ -41,6 +44,7 @@ public class EconomyController : MonoBehaviour {
     public float warmthDecrease = 1;                                        // the rate that it decreases at
     public Image hungerBar;                                                 // stores the fill bar for hunger
     public Image warmthBar;                                                 // stores the fill bar for hunger
+    
 
     // Use this for initialization
     void Start () {
@@ -58,27 +62,35 @@ public class EconomyController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        EarnMoney();
+        //EarnMoney();                      // no longer passively earning money
         // add a debug key for begging passive
-        if (Input.GetKeyUp(debugBegPassive))
-            EarnMoneyDEBUG();
-        //if (Input.GetKeyUp(buySandwich))
-            //BuyFood(GameObject.Find("Sandwich"));
-        if (Input.GetKeyUp(debugBegPositive))
-            BegForMoneyPOS_Debug();
-        if (Input.GetKeyUp(debugBegNegative))
-            BegForMoneyNEG_Debug();
+        //if (Input.GetKeyUp(debugBegPassive))
+        //    EarnMoneyDEBUG();
+        ////if (Input.GetKeyUp(buySandwich))
+        //    //BuyFood(GameObject.Find("Sandwich"));
+        //if (Input.GetKeyUp(debugBegPositive))
+        //    BegForMoneyPOS_Debug();
+        //if (Input.GetKeyUp(debugBegNegative))
+        //    BegForMoneyNEG_Debug();
         // hunger and warmth
         hunger -= hungerDecrease * Time.deltaTime;
-        warmth -= hungerDecrease * Time.deltaTime;
+        warmth -= warmthDecrease * Time.deltaTime;
+        if (warmth >= 100)
+            warmth = 100;                                                       // clamps warmth
         hungerBar.fillAmount = hunger / 100;
         warmthBar.fillAmount = warmth / 100;
 
+
+        // end the game
         if(warmth <= 0 || hunger <= 0)
         {
-           // Debug.Log("max");
-            SceneManager.LoadScene(1);
+            // Debug.Log("max");
+            // load the ending scene
+            this.GetComponent<NextSceneTransition>().enabled = true;
+            //SceneManager.LoadScene(2);          
         }
+
+        
     }
 
     #region Passively Earning Money
@@ -246,6 +258,21 @@ public class EconomyController : MonoBehaviour {
     //            hunger = 100;
     //    }
     //}
+
+    #endregion
+
+    #region Getting Warm
+    //private bool isWarmingSelf = false;
+
+    public void StartWarmingSelf()
+    {
+        warmthDecrease = -1f;
+    }
+
+    public void StopWarmingSelf()
+    {
+        warmthDecrease = 1;
+    }
 
     #endregion
 }
