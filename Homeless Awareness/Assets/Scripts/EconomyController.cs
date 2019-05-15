@@ -85,7 +85,7 @@ public class EconomyController : MonoBehaviour {
 
         // makes the vignette more intense
         VignetteModel.Settings vignetteSettings = vignetteProfile.vignette.settings;
-        vignetteSettings.intensity = 0.5f - ((warmth + hunger)/200);
+        vignetteSettings.intensity = 1 - ((warmth + hunger)/200);
         vignetteProfile.vignette.settings = vignetteSettings;
 
         // makes the black panel more visible
