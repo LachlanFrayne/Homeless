@@ -320,6 +320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneNumber: 1
   timeToTransition: 5
+  time: 0
 --- !u!1 &852349163
 GameObject:
   m_ObjectHideFlags: 0

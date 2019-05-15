@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4375856285659426}
   - component: {fileID: 114902270880706758}
+  - component: {fileID: 114028984958033876}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -40,6 +41,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114028984958033876
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1572632916990808}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9587d53b056f1f84fa24f2460ae466ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneNumber: 2
+  timeToTransition: 2
+  time: 0
 --- !u!114 &114902270880706758
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -51,12 +66,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcbaddf2d929ae94ea029e7319ab0eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugBegPassive: 0
-  debugBegPositive: 0
-  debugBegNegative: 0
-  buySandwich: 0
-  getWarm: 0
-  openStore: 0
   timePassed: 0
   minTime: 5
   maxTime: 20
@@ -71,6 +80,7 @@ MonoBehaviour:
   warmthDecrease: 1
   hungerBar: {fileID: 0}
   warmthBar: {fileID: 0}
+  vignetteProfile: {fileID: 11400000, guid: bb3a451f839a1ef4cb196ac2974065d2, type: 2}
   dialogueTXT: {fileID: 0}
   dialogueListPositive:
   - '"Sure. Here you go."'

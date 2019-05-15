@@ -44,6 +44,8 @@ public class EconomyController : MonoBehaviour {
     public float warmthDecrease = 1;                                        // the rate that it decreases at
     public Image hungerBar;                                                 // stores the fill bar for hunger
     public Image warmthBar;                                                 // stores the fill bar for hunger
+    public PostProcessingProfile vignetteProfile;
+    public Image blackPanel;
     
 
     // Use this for initialization
@@ -53,6 +55,7 @@ public class EconomyController : MonoBehaviour {
         ChooseRandomMoney();
         moneyTxt.text = "$0.00";
         dialogueTXT.text = "";                                              // clear the dialogue
+        vignetteProfile.vignette.enabled = true;
         // counts the amount of strings in the dialogue lists
         //countMaxPositive = dialogueListPositive.Count;
         //countMaxNegative = dialogueListNegative.Count;
@@ -80,9 +83,16 @@ public class EconomyController : MonoBehaviour {
         hungerBar.fillAmount = hunger / 100;
         warmthBar.fillAmount = warmth / 100;
 
+        // makes the vignette more intense
+        VignetteModel.Settings vignetteSettings = vignetteProfile.vignette.settings;
+        vignetteSettings.intensity = 0.5f - ((warmth + hunger)/200);
+        vignetteProfile.vignette.settings = vignetteSettings;
+
+        // makes the black panel more visible
+        blackPanel.color = new Color(0, 0, 0, vignetteSettings.intensity);
 
         // end the game
-        if(warmth <= 0 || hunger <= 0)
+        if (warmth <= 0 || hunger <= 0)
         {
             // Debug.Log("max");
             // load the ending scene
