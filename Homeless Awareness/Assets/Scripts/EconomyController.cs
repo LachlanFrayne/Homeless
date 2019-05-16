@@ -85,11 +85,11 @@ public class EconomyController : MonoBehaviour {
 
         // makes the vignette more intense
         VignetteModel.Settings vignetteSettings = vignetteProfile.vignette.settings;
-        vignetteSettings.intensity = 1 - ((warmth + hunger)/200);
+        vignetteSettings.intensity = 1 - ((warmth + hunger + 100)/300);
         vignetteProfile.vignette.settings = vignetteSettings;
 
         // makes the black panel more visible
-        blackPanel.color = new Color(0, 0, 0, vignetteSettings.intensity);
+        blackPanel.color = new Color(255, 255, 255, vignetteSettings.intensity);
 
         // end the game
         if (warmth <= 0 || hunger <= 0)

@@ -3066,6 +3066,71 @@ Prefab:
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114847937068302896, guid: 12705c03bb7c0444ab37fcac67df3d7d,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114847937068302896, guid: 12705c03bb7c0444ab37fcac67df3d7d,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114847937068302896, guid: 12705c03bb7c0444ab37fcac67df3d7d,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114847937068302896, guid: 12705c03bb7c0444ab37fcac67df3d7d,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114274061745353012, guid: 12705c03bb7c0444ab37fcac67df3d7d,
+        type: 2}
+      propertyPath: m_Text
+      value: Dialogue goes here
+      objectReference: {fileID: 0}
+    - target: {fileID: 224076679232252526, guid: 12705c03bb7c0444ab37fcac67df3d7d,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -4.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224076679232252526, guid: 12705c03bb7c0444ab37fcac67df3d7d,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 1430.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224076679232252526, guid: 12705c03bb7c0444ab37fcac67df3d7d,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 169.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114274061745353012, guid: 12705c03bb7c0444ab37fcac67df3d7d,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 56
+      objectReference: {fileID: 0}
+    - target: {fileID: 114274061745353012, guid: 12705c03bb7c0444ab37fcac67df3d7d,
+        type: 2}
+      propertyPath: m_FontData.m_MaxSize
+      value: 56
+      objectReference: {fileID: 0}
+    - target: {fileID: 114274061745353012, guid: 12705c03bb7c0444ab37fcac67df3d7d,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114274061745353012, guid: 12705c03bb7c0444ab37fcac67df3d7d,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114274061745353012, guid: 12705c03bb7c0444ab37fcac67df3d7d,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12705c03bb7c0444ab37fcac67df3d7d, type: 2}
   m_IsPrefabAsset: 0
