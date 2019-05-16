@@ -9,9 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScreen-001.unity
     guid: 5e2989fe6edc29e4e83f62d57c570610
   - enabled: 1
-    path: Assets/Scenes/Main_Chris-003-Alpha.unity
-    guid: a45f2ea34345cf04ea8862e703c19c53
+    path: Assets/Scenes/Main_Beta.unity
+    guid: 3212f9957a535aa4c9a8d0342fb2e63c
   - enabled: 1
     path: Assets/Scenes/EndScreen-001.unity
     guid: b6485f20a88fa72449cb90733e10390a
+  - enabled: 0
+    path: Assets/Scenes/Main_Chris-003-Alpha.unity
+    guid: a45f2ea34345cf04ea8862e703c19c53
   m_configObjects: {}
